@@ -1,0 +1,63 @@
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#headernav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="headernav">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a id="gethooked" data-toggle="modal" data-target="#asciicinema"><strong>Watch Demo</strong></a></li>
+                    <li><a href="https://github.com/fisherman/fisherman#install">Get Started</a></li>
+                    <li><a href="http://why.fisherman.sh">Why?</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/fisherman">GitHub</a></li>
+                    <li><a href="http://faq.fisherman.sh">FAQ</a></li>
+                    <li class="active"><a href="https://fisherman-wharf.herokuapp.com"><strong>Community</strong> <i class="fa fa-slack"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="asciicinema" tabindex="-1" role="dialog" aria-labelledby="asciicinema">
+        <span type="button" class="close-modal hvr-bounce-in" data-dismiss="modal" aria-label="Close">
+            <small>&times;</small>
+        </span>
+
+        <div id="modal-hero">
+            <img id="hero-logo" src="/images/fisherman-logo.svg" alt="Fisherman"/>
+            <div id="player-container"></div>
+        </div>
+
+        <script>
+            asciinema_player.core.CreatePlayer(
+                'player-container',
+                '/resources/asciicast.json', {
+                width: 81,
+                height: 20,
+                autoPlay: true,
+                fontSize: "medium",
+                loop: true
+            })
+        </script>
+    </div>
+
+    <script>
+        $('#asciicinema').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+
+        $(document).ready(function() {
+            if(location.hash === "#demo" || location.hash === "#show") {
+                $('#asciicinema').modal('show')
+            }
+        })
+    </script>
+<header>
