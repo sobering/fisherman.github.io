@@ -112,9 +112,4 @@ $.get(source, function(data) {
     $("#search").on("input", function(){
       runSearch(fusePlugins)
     })
-
-    $(document).ready(function(){
-        $("#search").val("*")
-        runSearch(fusePlugins)
-    })
 })
