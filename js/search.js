@@ -87,29 +87,49 @@ var setVal = function(item) {
   })
 }
 
+var searchQueryString = function() {
+
+  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1)
+
+  var retval = ''
+
+  $.each(hashes.split('&'), function(i, query) {
+
+    kv = query.split('=')
+
+    if (kv[0] == 'q') {
+      console.log('returning ' + kv[1]);
+      retval = kv[1]
+    }
+
+  })
+
+  return retval
+
+}
+
 $.get(source, function(data) {
   var plugs = data.split("\n\n")
 
     for (var i=0; i<plugs.length; i++) {
       var dat = plugs[i].split("\n")
 
-        plugins.push({
-          "title" : dat[0],
-          "url": dat[1],
-          "desc": dat[2],
-          "tagstring": dat[3],
-          "tags": dat[3].trim().split(" "),
-          "author": dat[4]
-        })
+      plugins.push({
+        "title" : dat[0],
+        "url": dat[1],
+        "desc": dat[2],
+        "tagstring": dat[3],
+        "tags": dat[3].trim().split(" "),
+        "author": dat[4]
+      })
     }
 
   fusePlugins = new Fuse(plugins, options)
 
-    $("#searchdiv")
-        .html("<input type=\"search\" name=\"search\" class=\"form-control\" id=\"search\" placeholder=\"Search "
-            + plugins.length + " Plugins...\"/><div id=\"results\"></div>")
+  $("#search").attr('placeholder', "Search " + plugins.length + " Plugins...")
 
-    $("#search").on("input", function(){
-      runSearch(fusePlugins)
-    })
+  $("#search").on("input", function() {
+    runSearch(fusePlugins)
+  }).val(searchQueryString()).trigger('input')
+
 })
