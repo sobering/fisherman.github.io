@@ -12,10 +12,10 @@ jekyll serve
 
 [jekyll]: https://jekyllrb.com
 
-[Website]: http://fisherman.sh
+[Website]: https://fisherman.github.io
 
-[slack-link]: https://fisherman-wharf.herokuapp.com/
-[slack-badge]: https://img.shields.io/badge/slack-join%20the%20chat-00B9FF.svg?style=flat-square
+[slack-link]: https://fisherman-wharf.herokuapp.com
+[slack-badge]: https://fisherman-wharf.herokuapp.com/badge.svg
 
 ## Logo
 
