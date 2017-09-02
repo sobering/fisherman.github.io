@@ -5,7 +5,7 @@ html {
 
 body {
   font-family: "Helvetica Neue", "Arial", sans-serif;
-  background-color: #000;
+  background-color: #4209FF;
   color: #fff;
   line-height: 150%;
   margin: 0 0 55px; /* bottom = footer height */
@@ -340,9 +340,9 @@ input#search {
 
 .tag:hover {
     transition: all 0.1s ease;
-    border: 1px solid #000;
+    border: 1px solid #4209FF;
     cursor: pointer;
-    background-color: #000;
+    background-color: #4209FF;
     color: #FFF;
 }
 
